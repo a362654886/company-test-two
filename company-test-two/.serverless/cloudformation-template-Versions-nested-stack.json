@@ -1,0 +1,86 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "VersionsNestedStack nested stack",
+  "Parameters": {
+    "InventoryInsertLambdaFunctionParameter": {
+      "Type": "String"
+    },
+    "SubtractInventoryLambdaFunctionParameter": {
+      "Type": "String"
+    },
+    "ResetInventoryLambdaFunctionParameter": {
+      "Type": "String"
+    },
+    "InsertPreOrderLambdaFunctionParameter": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "InventoryInsertLambdaVersionVARqNdQtG2JAsABjZXtIhUkmjZQjC7o1p0DLlmcb8": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "InventoryInsertLambdaFunctionParameter"
+        },
+        "CodeSha256": "FBJ0bg8ht0F7z9Lwy7UuyPrqwbtwgD1mA1QUCr8WSyQ="
+      },
+      "DependsOn": []
+    },
+    "SubtractInventoryLambdaVersionDTPM0IZtba9v1802yrZpIfanMJtEB915OEJZAEngQQA": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "SubtractInventoryLambdaFunctionParameter"
+        },
+        "CodeSha256": "FBJ0bg8ht0F7z9Lwy7UuyPrqwbtwgD1mA1QUCr8WSyQ="
+      },
+      "DependsOn": []
+    },
+    "ResetInventoryLambdaVersionVRfyu4sJvRF60yqX8K418wP7GOpWgRHbAU4IvNHUWjQ": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "ResetInventoryLambdaFunctionParameter"
+        },
+        "CodeSha256": "FBJ0bg8ht0F7z9Lwy7UuyPrqwbtwgD1mA1QUCr8WSyQ="
+      },
+      "DependsOn": []
+    },
+    "InsertPreOrderLambdaVersionFzHBQKiEb8RQwJxc3oVXHYyKNcpN7qUIsOy61vDFQ": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "InsertPreOrderLambdaFunctionParameter"
+        },
+        "CodeSha256": "FBJ0bg8ht0F7z9Lwy7UuyPrqwbtwgD1mA1QUCr8WSyQ="
+      },
+      "DependsOn": []
+    }
+  },
+  "Outputs": {
+    "InsertPreOrderLambdaVersionFzHBQKiEb8RQwJxc3oVXHYyKNcpN7qUIsOy61vDFQ": {
+      "Value": {
+        "Ref": "InsertPreOrderLambdaVersionFzHBQKiEb8RQwJxc3oVXHYyKNcpN7qUIsOy61vDFQ"
+      }
+    },
+    "ResetInventoryLambdaVersionVRfyu4sJvRF60yqX8K418wP7GOpWgRHbAU4IvNHUWjQ": {
+      "Value": {
+        "Ref": "ResetInventoryLambdaVersionVRfyu4sJvRF60yqX8K418wP7GOpWgRHbAU4IvNHUWjQ"
+      }
+    },
+    "SubtractInventoryLambdaVersionDTPM0IZtba9v1802yrZpIfanMJtEB915OEJZAEngQQA": {
+      "Value": {
+        "Ref": "SubtractInventoryLambdaVersionDTPM0IZtba9v1802yrZpIfanMJtEB915OEJZAEngQQA"
+      }
+    },
+    "InventoryInsertLambdaVersionVARqNdQtG2JAsABjZXtIhUkmjZQjC7o1p0DLlmcb8": {
+      "Value": {
+        "Ref": "InventoryInsertLambdaVersionVARqNdQtG2JAsABjZXtIhUkmjZQjC7o1p0DLlmcb8"
+      }
+    }
+  }
+}

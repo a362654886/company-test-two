@@ -1,0 +1,167 @@
+---
+swagger: "2.0"
+info:
+  version: "1.00"
+  title: "serverless-code-dev"
+host: "3hs22yz671.execute-api.us-east-1.amazonaws.com"
+basePath: "/dev"
+schemes:
+  - "https"
+paths:
+  /inventoryInsert:
+    post:
+      summary: Insert item to inventory
+      description: Insert item to inventory
+      parameters:
+        - name: inventoryBody
+          in: body
+          schema:
+            properties:
+              channelBody:
+                $ref: "#/definitions/Inventory"
+      responses:
+        200:
+          description: success
+        400:
+          description: fail
+    options:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+  /subtractInventory:
+    put:
+      summary: subtract orders from inventory
+      description: subtract orders from inventory
+      parameters:
+        - name: subtractBody
+          in: body
+          schema:
+            properties:
+              item:
+                type: string
+              orderedNumber:
+                type: number  
+      responses:
+        200:
+          description: success
+          schema:
+            items:
+              properties:
+                result:
+                  type: string
+        400:
+          description: fail
+          schema:
+            items:
+              properties:
+                result:
+                  type: string
+    options:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+  /resetInventory:
+    put:
+      summary: reset inventory according time
+      description: reset inventory according time
+      parameters:
+        - name: subtractBody
+          in: body
+          schema:
+            properties:
+              time:
+                type: string
+      responses:
+        200:
+          description: success
+        400:
+          description: fail
+    options:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+  /insertPreOrder:
+    post:
+      summary: Insert item to pre order
+      description: Insert item to pre order
+      parameters:
+        - name: insertPreOrder
+          in: body
+          schema:
+            properties:
+              channelBody:
+                $ref: "#/definitions/PreOrder"
+      responses:
+        200:
+          description: success
+        400:
+          description: fail
+    options:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+definitions:
+  Inventory:
+    type: object
+    properties:
+      _id:
+        type: string
+      currentInventory:
+        type: number
+      defaultInventory:
+        type: number
+      preOrderNumber:
+        type: number
+  PreOrder:
+    type: object
+    properties:
+      _id:
+        type: string
+      time:
+        type: string
+      orderedNumber:
+        type: number

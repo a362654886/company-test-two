@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "noUnusedLocals": false,
+    "baseUrl": ".",
+    "outDir": "./dist/src"
+  },
+  "type": "module",
+  "include": ["*/**/*.ts", "src/test/jestTest/testChannel.test.tsx"],
+  "exclude": ["node_modules"]
+}

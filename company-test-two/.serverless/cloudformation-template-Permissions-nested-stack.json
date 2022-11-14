@@ -1,0 +1,164 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "PermissionsNestedStack nested stack",
+  "Parameters": {
+    "ApiGatewayRestApiParameter": {
+      "Type": "String"
+    },
+    "InventoryInsertLambdaFunctionArnParameter": {
+      "Type": "String"
+    },
+    "SubtractInventoryLambdaFunctionArnParameter": {
+      "Type": "String"
+    },
+    "ResetInventoryLambdaFunctionArnParameter": {
+      "Type": "String"
+    },
+    "InsertPreOrderLambdaFunctionArnParameter": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "InsertPreOrderLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "InsertPreOrderLambdaFunctionArnParameter"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApiParameter"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      },
+      "DependsOn": []
+    },
+    "InventoryInsertLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "InventoryInsertLambdaFunctionArnParameter"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApiParameter"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      },
+      "DependsOn": []
+    },
+    "ResetInventoryLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "ResetInventoryLambdaFunctionArnParameter"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApiParameter"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      },
+      "DependsOn": []
+    },
+    "SubtractInventoryLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "SubtractInventoryLambdaFunctionArnParameter"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApiParameter"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      },
+      "DependsOn": []
+    }
+  },
+  "Outputs": {}
+}
